@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Interactive Map Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is called the interactive map client that I built for my engineering mentorship at O'Reilly for Q2 - Q3 in 2023. 
+
+## Project Idea
+
+Create an Interactive Map to connect a Remote Team
+1. Users input a zip code, and there’s a pin that represents their location.
+1. The location of the pin is saved and stored with their email address.
+1. The user can delete the pin.
+1. The user can only have one pin.
+1. The map is of the United States
+1. If there are multiple pins in a zip code, will there be multiple pins? 
+1. What is the maximum number of pins in a zip code before it looks too much in the UI?
+1. Users can create a fun fact about themselves
+1. Each user also has a profile 
+1. User profiles are displayed on the right-hand side of the page and are organized by state alphabetically, then by the user, alphabetically
+1. Can users create their profile with an existing Google account? 
+
 
 ## Available Scripts
 
