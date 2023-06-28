@@ -2,18 +2,39 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
+// States are important in all FE programming to know the state of the page.
 function App() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  //states are important in all FE programming to know the state of the page.
+  const [zipCode, setZipCode] = useState('95401');
+  const [hasFetched, setHasFetched] = useState(false);
   
+
+
+// Create the input element in JS
+const input = document.createElement('input');
+input.type = 'number';
+input.id = 'userZip';
+input.placeholder = 'Enter a 5-digit zip code';
+
+// Add the input element, 'input', to the DOM
+const container = document.getElementById('container');
+//container.appendChild(input);
+
+// Append the input element to the container
+
+  
+
+//useEffect allows the webpage to be updated dynamically based on data input.
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://ZiptasticAPI.com/73013');
+        const response = await fetch(`http://ZiptasticAPI.com/${zipCode}`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -23,8 +44,20 @@ function App() {
       setIsLoading(false);
     };
 
-    fetchData();
-  }, []);
+   if (hasFetched === false) {
+      fetchData();
+      setHasFetched(true);
+   }
+  }, [zipCode, hasFetched]);
+  
+  const onChange = (event) => {
+    console.log('Event', event.target.value); 
+    setZipCode(event.target.value);
+  }
+
+  const onClick = () => {
+    setHasFetched(false);
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -39,7 +72,9 @@ function App() {
      <h1>Ariana's Interactive Map Client</h1>
      {data && (
         <div>
-          <h2>Zip Code: {data.zip}</h2>
+          <h2>Zip Code: {zipCode}</h2>
+          <input onChange={onChange} type="string" id="userZipInput" placeholder="Enter your zipcode"/>
+          <button onClick={onClick} type="button" id="myButton">Submit</button>
           <p>City: {data.city}</p>
           <p>State: {data.state}</p>
         </div>
