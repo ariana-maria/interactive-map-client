@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from '@mui/material/Button';
 
 
 
@@ -69,12 +70,17 @@ const container = document.getElementById('container');
 
   return (
     <div className="App">
-     <h1>Ariana's Interactive Map Client</h1>
+     <h1>Zip code identifier</h1>
      {data && (
-        <div>
-          <h2>Zip Code: {zipCode}</h2>
+        <div className="global-style">
+          <br></br>
           <input onChange={onChange} type="string" id="userZipInput" placeholder="Enter your zipcode"/>
-          <button onClick={onClick} type="button" id="myButton">Submit</button>
+          <br></br>
+          <br></br><button className="custom-button" onClick={onClick} type='button'>
+            
+            Submit
+            </button>
+            <h2>Zip Code: {zipCode}</h2>
           <p>City: {data.city}</p>
           <p>State: {data.state}</p>
         </div>
