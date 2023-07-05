@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(19, 19, 19);
 }
 
 .App-link {
@@ -35,4 +35,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.global-style {
+  background-color: #e9f1fa;
+  color: rgb(22, 21, 21);
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.custom-button {
+  background-color: #00abe4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: hsl(317, 45%, 53%);
+}
+
+.custom-button:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button:active {
+  background-color: #b864b0;
+  transform: translateY(2px);
+}
+
+
+body {
+  background-color: #ffffff; /* Replace with your desired background color */
+  margin: 0; /* Ensure there's no default margin around the body */
+  padding: 0; /* Ensure there's no default padding around the body */
 }
